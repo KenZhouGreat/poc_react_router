@@ -13,38 +13,28 @@ function Users() {
   return <h2>Users</h2>;
 }
 
-function Blocks(props) {
-  console.log(props);
-  return <h2>{props.match.url}</h2>
-}
-
-function AppRouter() {
+export default function AppRouter() {
   return (
     <Router>
       <div>
         <nav>
           <ul>
             <li>
-              <Link to="/editor/1000/2001">2001</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/editor/1000/2002">2002</Link>
+              <Link to="/about/">About</Link>
             </li>
             <li>
-              <Link to="/editor/1000/2003">2003</Link>
+              <Link to="/users/">Users</Link>
             </li>
           </ul>
         </nav>
 
-        <Route path="/editor/:learningObjectId/:blockId" exact render={(props)=> {
-          return <Blocks {...props} />
-        }} />
-       
+        <Route path="/" exact comoponent={Index} />
+        <Route path="/about" comoponent={About} />
+        <Route path="/users" comoponent={Users} />
       </div>
     </Router>
   );
 }
-
-export default AppRouter;
-
-
